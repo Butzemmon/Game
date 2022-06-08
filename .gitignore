@@ -1,0 +1,11 @@
+# PyCharm files
+.idea
+
+# Python cache
+__pycache__
+
+# Python virtual environment
+venv
+
+# Saved games
+*.sav
