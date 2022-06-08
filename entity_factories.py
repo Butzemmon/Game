@@ -1,0 +1,76 @@
+from components.ai import HostileEnemy
+from components.fighter import Fighter
+from components import consumable
+from components.inventory import Inventory
+from entity import Actor, Item
+
+import color
+
+player = Actor(
+    char="@",
+    color= color.white,
+    name="Player",
+    ai_cls=HostileEnemy,
+    fighter=Fighter(hp=30, defense=2, power=5),
+    inventory=Inventory(capacity=26),
+)
+
+orc = Actor(
+    char="o",
+    color=(63, 127, 63),
+    name="Orc",
+    ai_cls=HostileEnemy,
+    fighter=Fighter(hp=10, defense=0, power=3),
+    inventory=Inventory(capacity=0),
+)
+troll = Actor(
+    char="T",
+    color=(0, 127, 0),
+    name="Troll",
+    ai_cls=HostileEnemy,
+    fighter=Fighter(hp=16, defense=1, power=4),
+    inventory=Inventory(capacity=0),
+)
+minotaur = Actor(
+    char="M",
+    color=color.red,
+    name="Minotaur",
+    ai_cls=HostileEnemy,
+    fighter=Fighter(hp=100, defense=5, power=10),
+    inventory=Inventory(capacity=0),
+)
+
+health_potion = Item(
+    char="!",
+    color=color.black,
+    name="Health Potion",
+    consumable=consumable.HealingConsumable(amount=50),
+)
+
+lightning_scroll = Item(
+    char="!",
+    color=color.black,
+    name="Lightning Scroll",
+    consumable=consumable.LightningDamageConsumable(damage=20, maximum_range=5),
+)
+
+confusion_scroll = Item(
+    char="!",
+    color=color.black,
+    name="Confusion Scroll",
+    consumable=consumable.ConfusionConsumable(number_of_turns=10),
+)
+
+fireball_scroll = Item(
+    char="!",
+    color=color.black,
+    name="Fireball Scroll",
+    consumable=consumable.FireballDamageConsumable(damage=12, radius=3),
+)
+
+throwing_spear = Item(
+    char="!",
+    color=color.black,
+    name="Throwing Spear",
+    consumable=consumable.RangedWeaponConsumable(damage=20, maximum_range=5),
+)
